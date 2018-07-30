@@ -1,0 +1,17 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Selenium1 {
+	
+	public static void main(String args[]) 
+	{
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://vpn.qainfotech.com/+CSCO+00756767633A2F2F31302E302E312E3836++/tatoc");
+		
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		driver.close();
+		
+	}
+
+}
