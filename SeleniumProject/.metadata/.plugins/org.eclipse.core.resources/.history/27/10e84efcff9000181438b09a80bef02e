@@ -1,0 +1,25 @@
+import java.lang.Math;
+
+public class SigDig {
+
+  public static void main(String[] args) {
+    System.out.println("   -123.456   rounded up   to 2 sig figures is " + sigDigRounder(2, 3,  1));
+    System.out.println("     -0.03394 rounded down to 3 sig figures is " + sigDigRounder(5080, 3, 1));
+    System.out.println("    474       rounded up   to 2 sig figures is " + sigDigRounder(11.40, 3,  1));
+    System.out.println("3004001       rounded down to 4 sig figures is " + sigDigRounder(5097, 4, 1));
+  }
+
+  public static double sigDigRounder(double value, int nSigDig, int dir) {
+
+    double intermediate = value/Math.pow(10,Math.floor(Math.log10(Math.abs(value)))-(nSigDig-1));
+
+    if(dir > 0)      intermediate = Math.ceil(intermediate);
+    else if (dir< 0) intermediate = Math.floor(intermediate);
+    else             intermediate = Math.round(intermediate);
+
+    double result = intermediate * Math.pow(10,Math.floor(Math.log10(Math.abs(value)))-(nSigDig-1));
+
+    return(result);
+
+  }
+}
